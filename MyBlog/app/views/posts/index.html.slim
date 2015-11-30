@@ -1,0 +1,24 @@
+.row
+  .medium-12.columns
+    = link_to 'Sign Out', destroy_user_session_path, method: :delete
+    h1 Listing posts
+    .posts
+      - @posts.each do |post|
+          .sdvig
+            = link_to post.title, "/posts/#{post.id}"
+          br
+          .boxShadow3
+            = post.body
+          ul class="button-group"
+            a href="/posts/#{post.id}" class="tiny button" id="my_group_button"
+                div class="fi-comments custom-size"
+                  = post.comments.count
+          br
+          .button-group id="my_group_button" 
+            -if post.user_id==current_user.id
+              = link_to 'Edit', edit_post_path(post), class: "tiny button"              
+              = link_to 'Destroy', post,class: "alert tiny button", data: {:confirm => 'Are you sure?'}, :method => :delete
+
+    br
+
+    = link_to 'New Post', new_post_path, class: "expanded success button"

@@ -1,0 +1,47 @@
+
+.row
+  .medium-12.columns
+    
+    = link_to 'Sign Out', destroy_user_session_path, method: :delete
+    
+    p#notice = notice
+    
+    h2  Post:
+    
+    h4 =@post.title
+    
+    br
+    
+    .boxShadow3
+      = @post.body
+    
+    ul class="button-group"
+      a href="" class="tiny button" id="my_group_button"
+        div id="idcount" class="fi-comments custom-size"
+          = @post.comments.count
+    
+    .button-group id="my_group_button"    
+      =link_to "Show comments", "", id: "show_comments", class: "tiny button"
+      = link_to 'Edit', edit_post_path(@post), class: "tiny button"
+      = link_to 'Back', posts_path, class: "tiny button" 
+    
+    .comments
+      
+      h2 Comments:
+      - @comments.each do |comment|
+        = render comment
+
+
+    = form_for(@post.comments.new, remote: true) do |f|
+      
+      = f.hidden_field :post_id, :value => @post.id
+      
+      = f.hidden_field :nickname, :value =>current_user.email
+      
+      .field
+        = f.label :text
+        br
+        = f.text_area :text
+      
+      .actions 
+        = f.submit "Comment", class: "button", id: "create_comment", remote: true             

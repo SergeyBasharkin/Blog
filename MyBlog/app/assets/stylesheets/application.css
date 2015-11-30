@@ -1,0 +1,58 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
+#my_group_button a {
+	color: white;
+} 
+.social-button {
+  margin-top: 40px;
+  float: left;
+}
+
+.social-button .large {
+  font-size: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+.social-button span {
+  display: block;
+  text-align: center;
+}
+
+.comment-text{
+	text-align: justify;
+}
+.boxShadow3 { 
+	width: 80%; 
+	max-width: 550px; 
+	padding: 1em; 
+	box-shadow: 0 0 40px rgba(0, 0, 0, .1) inset;
+	 }
+.sdvig a {
+ -moz-transition: all 0.1s ease-in-out;
+ -o-transition: all 0.1s ease-in-out;
+ -webkit-transition: all 0.1s ease-in-out;
+ color:#222;
+ display:block;
+ }
+ 
+.sdvig a:hover {
+ -webkit-transform: translate(8px,0);
+ -moz-transform: translate(8px,0);
+ -o-transform: translate(8px,0);
+ color: #1FA2E1;
+ }

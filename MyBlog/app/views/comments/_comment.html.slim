@@ -1,0 +1,8 @@
+.comment data-id=comment.id
+  .comment-nickname
+    h4 #{comment.nickname}
+
+  .comment-text class="boxShadow3"
+    h5 = comment.text
+  -if comment.nickname==current_user.email
+  	= button_to "Delete", comment, method: :delete, class: "tiny alert button", id: "delete", remote: true
